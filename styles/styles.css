@@ -1,0 +1,154 @@
+body{
+    height: 100%;
+    margin: 0;
+    height: 100vh;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+H1,H2,H3{
+	color: #ffffff;
+	font-family: 'Oxygen', sans-serif;
+	font-weight: 300;
+	margin-bottom: 35px;
+}
+
+a,
+button{
+	color: #fff;
+	-webkit-transition: all .4s;
+	-moz-transition: all .4s;
+	transition: all .4s;
+}
+a:focus,
+a:active,
+a:hover{
+	color: #fff;
+	text-decoration: underline;
+}
+.animateBackground{
+	min-width: 100%;
+    min-height: 100%;
+	background-image: url(../images/1.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.logged > .animateBackground{
+	background-image: url(../images/2.jpg);
+}
+
+.login > .animateBackground{
+	background-image: url(../images/3.jpg);
+}
+
+/*
+	HEADER
+*/
+
+header{
+	background: #f8f8f8;
+	margin-bottom: 50px;
+}
+.navbar-default{
+	border-radius: 0;
+	margin: 0;
+	border-color: transparent;
+}
+.navbar-brand{
+	font-family: 'Pacifico', cursive;
+	font-size: 22px;
+}
+.user-container {
+    display: inline-block;
+    line-height: 52px;
+}
+.user > * {
+    display: inline-block;
+    margin: 0 0 0 5px;
+}
+.user > a{
+	color: #777;
+}
+.user > span{
+    color: #777;
+    font-size: 18px;
+    border-radius: 50%;
+    border: 1px solid #777;
+    padding: 6px;
+}
+
+/*
+	FORMS
+*/
+
+.form-control{
+	margin-bottom: 20px;
+	border-radius: 0;
+}
+.form-error{
+	padding: 10px;
+	position: relative;
+	background: #e34040;
+	color: #fff;
+	font-size: 16px;
+	visibility: hidden;
+	opacity: 0;
+	height: 0;
+	-webkit-transition: all .4s;
+	-moz-transition: all .4s;
+	transition: all .4s;
+}
+.form-error.in{
+	visibility: visible;
+	opacity: 1;
+	height: auto;
+}
+.form-error::before {
+	content: "";
+	position: absolute;
+	top: -15px;
+	left: 50%;
+	margin-left: 4px;
+	border-width: 8px;
+	border-style: solid;
+	border-color: transparent transparent #e34040 transparent;
+}
+.form-button p,
+.form-button a{
+	font-size: 20px;
+	line-height: 22px;
+	color: #fff;
+	text-shadow: 1px 1px 5px #989898;
+}
+.form-button a:hover{
+	text-decoration: underline;
+
+}
+.btn-success,
+.btn-success:active,
+.btn-success:focus{
+	margin-bottom: 10px;
+	background-color: #01c198;
+}
+.btn-success:hover{
+	background-color: #13a485;
+}
+
+/*
+	PAGE
+*/
+
+.page-header {
+    margin-bottom: 75px;
+}
+.page-link{
+	margin: 20px 0 100px;
+}
+
+/*
+	MEDIA QUERIES
+*/
+
+@media (max-width: 768px){
+	
+}
