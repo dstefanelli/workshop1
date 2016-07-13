@@ -68,6 +68,7 @@ header{
 }
 .user > a{
 	color: #777;
+	text-transform: capitalize;
 }
 .user > span{
     color: #777;

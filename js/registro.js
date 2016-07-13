@@ -7,13 +7,6 @@
 		this.pass = passVal;
 	}
 	
-	function removeErrors(){
-		errors = document.getElementsByClassName("form-error");
-		for(var i=0; i < errors.length; i++){
-			errors[i].classList.remove("in");
-		}
-	}
-	
 	function addError( elemt, text ){
 		error = elemt.nextElementSibling;
 		error.classList.add("in");
@@ -45,11 +38,19 @@
 		}
 	}
 	
+	function userData( user ){
+		if(sessionStorage){
+			sessionStorage.setItem(( userSession ),JSON.stringify(user));
+		}
+	}
+	
 	function getPass( passVal, emailVal ){
 		for(var i=0;i<localStorage.length;i++){
-			var user = JSON.parse(localStorage.getItem(localStorage.key(i)));
+			var user = JSON.parse(localStorage.getItem(localStorage.key(i))),
+				data = document.getElementsByClassName('user')[0];
 			
 			if( user.pass == passVal && user.email == emailVal ){
+				userData( user );
 				return true;
 			}
 		}
@@ -70,8 +71,6 @@
 				pass2 = document.getElementById("form-pass2"),
 				pass2Val = pass2.value,
 				formReg = true;
-			
-			removeErrors();
 			
 			if(nameVal == ""){
 				formReg = false;
@@ -137,6 +136,7 @@
 	}
 	
 	var formLogin = document.getElementsByName("formLogin")[0];
+	
 	if(formLogin != undefined ){
 		formLogin.onsubmit = function(){
 			var email = document.getElementById('form-login-email'),
@@ -144,8 +144,6 @@
 				pass = document.getElementById('form-login-pass'),
 				passVal = pass.value,
 				formLog = true;
-			
-			removeErrors();
 			
 			if(emailVal == ""){
 				formLog = false;
@@ -167,8 +165,6 @@
 				addSuccess( pass );
 			}
 			
-			//userData( emailVal );
-			
 			if( formLog ){
 				
 				document.location.href = 'index.html';
@@ -178,18 +174,13 @@
 		}
 	}
 	
-	function userData( emailVal ){
-		var bodyLogged = document.getElementsByClassName('logged')[0],
-			userLogged = document.getElementsByClassName('user')[0],
-			email = emailVal;
-
-		for(var i=0;i<localStorage.length;i++){
-			var usuario = JSON.parse(localStorage.getItem(localStorage.key(i)));
-
-			if( usuario.email == email ){
-				userLogged.children[1].innerHTML = usuario.name +" "+ usuario.surname;
-			}
-		}
+	var bodyLogged = document.getElementsByClassName('page-logged')[0];
+	
+	if( bodyLogged != undefined ){
+		var userLogged = document.getElementsByClassName('user')[0],
+			userSession = JSON.parse(sessionStorage.getItem( userSession ));
+		
+		userLogged.children[1].innerHTML = userSession.name +" "+ userSession.surname;
 	}	
 	
 })();
